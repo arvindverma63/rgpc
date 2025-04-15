@@ -6,10 +6,10 @@
 				<div class="single-footer-widget">
 					<h4>About Us</h4>
 					<ul>
-						<li><a href="about.html">About Institute</a></li>
-						<li><a href="management.html">Management</a></li>
-						<li><a href="vision.html">Vision & Mission</a></li>
-						<li><a href="gallery.html">Photo Gallery</a></li>
+						<li><a href="/about.php">About Institute</a></li>
+						<li><a href="/about-management.php">Management</a></li>
+						<li><a href="/about-vision-mission.php">Vision & Mission</a></li>
+						<li><a href="/about.php">Photo Gallery</a></li>
 					</ul>								
 				</div>
 			</div>
@@ -17,8 +17,8 @@
 				<div class="single-footer-widget">
 					<h4>Admissions</h4>
 					<ul>
-						<li><a href="admissions.html">Admission Procedure</a></li>
-						<li><a href="registration.html">Registration Form</a></li>
+						<li><a href="/admission-procedure.php">Admission Procedure</a></li>
+						<li><a href="/registration-form.php">Registration Form</a></li>
 					</ul>								
 				</div>
 			</div>
@@ -26,8 +26,8 @@
 				<div class="single-footer-widget">
 					<h4>Courses</h4>
 					<ul>
-						<li><a href="d-pharma.html">D.Pharma (2 Years)</a></li>
-						<li><a href="b-pharma.html">B.Pharma (4 Years)</a></li>
+						<li><a href="/d-pharma.php">D.Pharma (2 Years)</a></li>
+						<li><a href="/b-pharma.php">B.Pharma (4 Years)</a></li>
 					</ul>								
 				</div>
 			</div>
@@ -35,9 +35,9 @@
 				<div class="single-footer-widget">
 					<h4>Facilities</h4>
 					<ul>
-						<li><a href="wi-fi.html">Wi-Fi Campus</a></li>
-						<li><a href="library.html">Library</a></li>
-						<li><a href="computer-lab.html">Computer Lab</a></li>
+						<li><a href="/facility-wifi-campus.php">Wi-Fi Campus</a></li>
+						<li><a href="/facility-library.php">Library</a></li>
+						<li><a href="/facility-computer-lab.php">Computer Lab</a></li>
 					</ul>								
 				</div>
 			</div>																		
