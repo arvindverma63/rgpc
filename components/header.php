@@ -27,7 +27,7 @@
 
 					<ul class="nav-menu">
 						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="#">About Us</span></a>
+						<li><a href="/about.php">About Us</span></a>
 							<ul class="dropdown" style="right: auto;">
 								<li><a href="/about.php">About Institute</a></li>
 								<li><a href="management.html">Management</a></li>
