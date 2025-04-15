@@ -20,7 +20,7 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="img/logo1.png" height="70px" alt="Gurudev Innovative College of Pharmacy" title="Gurudev Innovative College of Pharmacy" /></a>
+					<a href="/"><img src="img/logo1.png" height="70px" alt="Gurudev Innovative College of Pharmacy" title="Gurudev Innovative College of Pharmacy" /></a>
 				</div>
 				<nav id="nav-menu-container">
 
@@ -29,7 +29,7 @@
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="#">About Us</span></a>
 							<ul class="dropdown" style="right: auto;">
-								<li><a href="about.html">About Institute</a></li>
+								<li><a href="/about.php">About Institute</a></li>
 								<li><a href="management.html">Management</a></li>
 								<li><a href="treasurer.html">Director Message</a></li>
 								<li><a href="vision.html">Vision & Mission</a></li>
