@@ -13,8 +13,7 @@
 			<div class="row fullscreen d-flex align-items-center justify-content-between">
 				<div class="banner-content col-lg-9 col-md-12">
 					<h1 class="text-uppercase">
-						We Ensure better education
-						for a better world
+					Gurudev Innovative College of Pharmacy College
 					</h1>
 					<p class="pt-10 pb-10">
 						Gurudev Innovative College of Pharmacy is committed to providing quality pharmaceutical education for a better future.
