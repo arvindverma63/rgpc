@@ -52,7 +52,7 @@
 								<li><a href="/course-bpharma.php">B.Pharma (1052)</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Facilities</span></a>
+						<li><a href="/facility-computer-lab.php">Facilities</span></a>
 							<ul class="dropdown" style="right: auto;">
 								<li><a href="/facility-wi-fi-campus.php">Wi-Fi Campus</a></li>
 								<li><a href="/facility-library.php">Library</a></li>
