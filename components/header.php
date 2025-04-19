@@ -50,6 +50,7 @@
 							<ul class="dropdown" style="right: auto;">
 								<li><a href="/course-dpharma.php">D.Pharma (2051)</a></li>
 								<li><a href="/course-bpharma.php">B.Pharma (1052)</a></li>
+								<li><a href="/fee-structure.php">Fee Structure</a></li>
 							</ul>
 						</li>
 						<li><a href="/facility-computer-lab.php">Facilities</span></a>
