@@ -46,7 +46,7 @@
 								<li><a href="/registration-form.php">Registration Form</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Courses</span></a>
+						<li><a href="/fee-structure.php">Courses</span></a>
 							<ul class="dropdown" style="right: auto;">
 								<li><a href="/course-dpharma.php">D.Pharma (2051)</a></li>
 								<li><a href="/course-bpharma.php">B.Pharma (1052)</a></li>
