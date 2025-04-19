@@ -5,9 +5,9 @@
 <body>
 <?php include('components/header.php'); ?>
 
-<section class="banner-area bg-dark text-white text-center py-5" style="min-height: 300px;">
-	<div class="container h-100 d-flex align-items-center justify-content-center">
-		<h1 class="display-4 font-weight-bold text-white">Fee Structure</h1>
+<section class="banner-area bg-dark text-white py-5 text-center">
+	<div class="container">
+		<h1 class="display-4 font-weight-bold text-white" style="margin-top: 170px;">Fee Structre</h1>
 	</div>
 </section>
 
