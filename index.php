@@ -13,13 +13,12 @@
 			<div class="row fullscreen d-flex align-items-center justify-content-between">
 				<div class="banner-content col-lg-9 col-md-12">
 					<h1 class="text-uppercase">
-						We Ensure better education
-						for a better world
+					Gurudev Innovative College of Pharmacy College
 					</h1>
 					<p class="pt-10 pb-10">
 						Gurudev Innovative College of Pharmacy is committed to providing quality pharmaceutical education for a better future.
 					</p>
-					<a href="#" class="primary-btn text-uppercase">Get Started</a>
+					<a href="/registration-form.php" class="primary-btn text-uppercase">Get Started</a>
 				</div>
 			</div>
 		</div>
@@ -39,7 +38,7 @@
 							<p>
 								Our faculty includes experts in pharmaceutical sciences.
 							</p>
-							<a href="#">Join Now</a>
+							<a href="/registration-form.php">Join Now</a>
 						</div>
 					</div>
 				</div>
@@ -52,7 +51,7 @@
 							<p>
 								State-of-the-art labs for practical training in pharmacy.
 							</p>
-							<a href="#">Join Now</a>
+							<a href="/registration-form.php">Join Now</a>
 						</div>
 					</div>
 				</div>
@@ -65,7 +64,7 @@
 							<p>
 								Easily accessible location with excellent transport links.
 							</p>
-							<a href="#">Join Now</a>
+							<a href="/registration-form.php">Join Now</a>
 						</div>
 					</div>
 				</div>
@@ -666,10 +665,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 cta-left">
-					<h1>Not Yet Satisfied with our Offerings?</h1>
+					<h1>Know More About us?</h1>
 				</div>
 				<div class="col-lg-4 cta-right">
-					<a class="primary-btn wh" href="#">Learn More</a>
+					<a class="primary-btn wh" href="/about.php">Learn More</a>
 				</div>
 			</div>
 		</div>
