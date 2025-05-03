@@ -60,20 +60,29 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        filter: blur(5px); /* Apply blur only to the background */
+        /* filter: blur(1px); Apply blur only to the background */
         z-index: 1;
     }
 
     .slide-1 .slide-background {
-        background: url("https://i.etsystatic.com/15857612/r/il/540084/4792907904/il_fullxfull.4792907904_h1pe.jpg");
+        background: url("https://www.innovativepharmacy.in/photos/teachers-days-2024/4.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     .slide-2 .slide-background {
-        background: url("https://wallpapercave.com/wp/wp7925366.jpg");
+        background: url("https://content.jdmagicbox.com/comp/patna/dc/9999px612.x612.100911121204.j6s7dc/catalogue/bihar-college-of-pharmacy-danapur-cantt-patna-pharmacy-colleges-tglc0j7ko8.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     .slide-3 .slide-background {
-        background: url("https://wallpapercave.com/wp/wp4511676.jpg");
+        background: url("https://biharcollegeofpharmacy.com/wp-content/uploads/2022/04/img_2.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     .slide-content {
@@ -83,7 +92,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         color: #fff;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+        background: rgba(0, 0, 0, 0.212); /* Semi-transparent background for readability */
         padding: 2rem;
         border-radius: 10px;
         z-index: 2; /* Ensure text is above the blurred background */
@@ -179,8 +188,8 @@
             <div class="slide slide-1">
                 <div class="slide-background"></div>
                 <div class="slide-content">
-                    <h2>Slide 1 Title</h2>
-                    <p>This is the description for the first slide.</p>
+                    <h2 style="color: #fc9928">Gurudev Innovative College of Pharmacy</h2>
+                    <p>Kakor-Auraiya (UP)</p>
                 </div>
             </div>
             <div class="slide slide-2">

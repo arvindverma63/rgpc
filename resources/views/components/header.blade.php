@@ -1,89 +1,224 @@
 <style>
-    .active-link{
-        padding: 2px;
-        background-color: #fc9928;
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        font-family: Lato, sans-serif;
+        font-size: 1.6rem;
+    }
+
+    .page {
+        width: 100%;
+        height: 102vh;
+        padding: 2rem;
+        margin: 0 auto;
+    }
+
+    .header {
+        width: 100%;
+        height: 5%;
+    }
+
+    .content {
+        width: 100%;
+        height: 95%;
+    }
+
+    .carousel {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel input[type="radio"] {
+        position: absolute;
+        display: none;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        opacity: 80%;
+        transition: ease-in-out 0.6s;
+        position: relative;
+    }
+
+    .slide-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        /* filter: blur(1px); Apply blur only to the background */
+        z-index: 1;
+    }
+
+    .slide-1 .slide-background {
+        background: url("https://www.innovativepharmacy.in/photos/teachers-days-2024/4.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .slide-2 .slide-background {
+        background: url("https://content.jdmagicbox.com/comp/patna/dc/9999px612.x612.100911121204.j6s7dc/catalogue/bihar-college-of-pharmacy-danapur-cantt-patna-pharmacy-colleges-tglc0j7ko8.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .slide-3 .slide-background {
+        background: url("https://biharcollegeofpharmacy.com/wp-content/uploads/2022/04/img_2.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.212); /* Semi-transparent background for readability */
+        padding: 2rem;
+        border-radius: 10px;
+        z-index: 2; /* Ensure text is above the blurred background */
+    }
+
+    .slide-content h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .slide-content p {
+        font-size: 1.8rem;
+    }
+
+    .control {
+        width: 6rem;
+        height: 6rem;
+        display: none;
+        clip-path: circle(50% at 50% 50%);
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #fff;
+        font-size: 5rem;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        z-index: 3; /* Ensure controls are above all elements */
+    }
+
+    .next {
+        right: 0;
+        transform: translate(-20%, -50%);
+    }
+
+    .prev {
+        transform: translate(20%, -50%);
+    }
+
+    input:nth-of-type(1):checked ~ .control-1,
+    input:nth-of-type(2):checked ~ .control-2,
+    input:nth-of-type(3):checked ~ .control-3 {
+        display: block peep;
+    }
+
+    input:nth-of-type(1):checked ~ .navigation .radio-btn-1,
+    input:nth-of-type(2):checked ~ .navigation .radio-btn-2,
+    input:nth-of-type(3):checked ~ .navigation .radio-btn-3 {
+        background-color: #fff;
+    }
+
+    input:nth-of-type(1):checked ~ .slide {
+        transform: translateX(0);
+    }
+
+    input:nth-of-type(2):checked ~ .slide {
+        transform: translateX(-100%);
+    }
+
+    input:nth-of-type(3):checked ~ .slide {
+        transform: translateX(-200%);
+    }
+
+    .navigation {
+        position: absolute;
+        width: 90px;
+        height: 20px;
+        bottom: 4%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        z-index: 3; /* Ensure navigation is above all elements */
+    }
+
+    .radio-btn {
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        background-color: rgba(0, 0, 0, 0.26);
+        display: block;
+        border-radius: 50%;
+        border: 0.4rem solid rgba(255, 255, 255, 0.9);
     }
 </style>
-<header id="header" id="home">
-    <div class="header-top" style="background-color: #fc9928">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                    </ul>
+
+<section class="page p-0" style="margin-top: 20px;">
+    <div class="content">
+        <div class="carousel">
+            <input type="radio" id="carousel-1" name="carousel" checked autofocus>
+            <input type="radio" id="carousel-2" name="carousel">
+            <input type="radio" id="carousel-3" name="carousel">
+
+            <div class="slide slide-1">
+                <div class="slide-background"></div>
+                <div class="slide-content">
+                    <h2 style="color: #fc9928">Gurudev Innovative College of Pharmacy</h2>
+                    <p>Kakor-Auraiya (UP)</p>
                 </div>
-                <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-                    <a href="tel:+8171135163"><span class="lnr lnr-phone-handset"></span> <span class="text">+8171135163</span></a>
-                    <a href="mailto:gicpharmacy24@gmail.com"><span class="lnr lnr-envelope"></span> <span class="text">gicpharmacy24@gmail.com</span></a>
+            </div>
+            <div class="slide slide-2">
+                <div class="slide-background"></div>
+                <div class="slide-content">
+                    <h2>Slide 2 Title</h2>
+                    <p>This is the description for the second slide.</p>
                 </div>
+            </div>
+            <div class="slide slide-3">
+                <div class="slide-background"></div>
+                <div class="slide-content">
+                    <h2>Slide 3 Title</h2>
+                    <p>This is the description for the third slide.</p>
+                </div>
+            </div>
+
+            <label for="carousel-3" class="control control-1 prev"><span>⤺</span></label>
+            <label for="carousel-2" class="control control-1 next"><span>⤼</span></label>
+            <label for="carousel-1" class="control control-2 prev"><span>⤺</span></label>
+            <label for="carousel-3" class="control control-2 next"><span>⤼</span></label>
+            <label for="carousel-2" class="control control-3 prev"><span>⤺</span></label>
+            <label for="carousel-1" class="control control-3 next"><span>⤼</span></label>
+
+            <div class="navigation">
+                <label for="carousel-1" class="radio-btn radio-btn-1"></label>
+                <label for="carousel-2" class="radio-btn radio-btn-2"></label>
+                <label for="carousel-3" class="radio-btn radio-btn-3"></label>
             </div>
         </div>
     </div>
-    <div class="container main-menu" style="background-color: rgba(255, 255, 255, 0.082);">
-        <div class="row align-items-center justify-content-between d-flex">
-            <div id="logo">
-                <a href="{{ route('index') }}"><img src="{{ asset('img/logo1.png') }}" height="70px" alt="Gurudev Innovative College of Pharmacy" title="Gurudev Innovative College of Pharmacy" /></a>
-            </div>
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="{{ request()->routeIs('index') ? 'active-link' : '' }}"><a href="{{ route('index') }}">Home</a></li>
-                    <li class="menu-has-children"><a href="{{ route('about') }}">About Us</a>
-                        <ul class="dropdown" style="right: auto;">
-                            <li><a href="{{ route('about') }}">About Institute</a></li>
-                            <li><a href="{{ route('about-management') }}">Management</a></li>
-                            <li><a href="{{ route('about-director-message') }}">Director Message</a></li>
-                            <li><a href="{{ route('about-vision-mission') }}">Vision & Mission</a></li>
-                            <li><a href="#">Photo Gallery</a></li>
-                            <li><a href="#">Approvals Details<span class="indicator"><i class="fa fa-angle-right"></i></span></a>
-                                <ul class="dropdown" style="display: none;">
-                                    <li><a href="#">All Approval Letters</a></li>
-                                    <li><a href="#">SIF 2019-20, 2020-21 & 2021-22</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-has-children"><a href="{{ route('admission-procedure') }}">Admissions</a>
-                        <ul class="dropdown" style="right: auto;">
-                            <li><a href="{{ route('admission-procedure') }}">Admission Procedure</a></li>
-                            <li><a href="{{ route('registration-form') }}">Registration Form</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-has-children"><a href="{{ route('course-bpharma') }}">Courses</a>
-                        <ul class="dropdown" style="right: auto;">
-                            <li><a href="{{ route('course-dpharma') }}">D.Pharma (2051)</a></li>
-                            <li><a href="{{ route('course-bpharma') }}">B.Pharma (1052)</a></li>
-                            <li><a href="{{ route('fee-structure') }}">Fee Structure</a></li>
-                        </ul>
-                    </li>
-                    <li class="{{ request()->routeIs('fee-structure') ? 'active-link' : '' }}"><a href="{{ route('fee-structure') }}">Fee Structure</a></li>
-                    <li class="menu-has-children"><a href="{{ route('facility-computer-lab') }}">Facilities</a>
-                        <ul class="dropdown" style="right: auto;">
-                            <li><a href="{{ route('facility-wifi-campus') }}">Wi-Fi Campus</a></li>
-                            <li><a href="{{ route('facility-library') }}">Library</a></li>
-                            <li><a href="{{ route('facility-computer-lab') }}">Computer Lab</a></li>
-                            <li><a href="{{ route('museum') }}">Museum</a></li>
-                            <li><a href="{{ route('seminar-hall') }}">Seminar Hall</a></li>
-                            <li><a href="{{ route('medical-garden') }}">Medicinal Garden</a></li>
-                            <li><a href="{{ route('first-aid-treatment') }}">First Aid Treatment</a></li>
-                            <li><a href="{{ route('sports-field') }}">Sports Field</a></li>
-                            <li><a href="{{ route('canteen') }}">Canteen</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-has-children"><a href="#">Students Data</a>
-                        <ul class="dropdown" style="right: 0px;">
-                            <li><a href="{{ route('dpharma-1st-year') }}">D.Pharma 1st Year Session 2019-20 & 2020-21</a></li>
-                            <li><a href="{{ route('bpharma-1st-year') }}">B.Pharma 1st Year Session 2019-20 & 2020-21</a></li>
-                        </ul>
-                    </li>
-                    <li class="{{ request()->routeIs('contact-us') ? 'active-link' : '' }}"><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                    <li class="scrollable-fix"></li>
-                    <li class="scrollable-fix"></li>
-                </ul>
-            </nav><!-- #nav-menu-container -->
-        </div>
-    </div>
-</header><!-- #header -->
+</section>
