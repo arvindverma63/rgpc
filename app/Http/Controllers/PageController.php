@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notice;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        $data = Notice::all();
+        return view('pages.index',['data'=>$data]);
     }
 
     public function about()

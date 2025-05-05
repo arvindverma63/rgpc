@@ -23,7 +23,7 @@
                            </div>
                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3">Sign In</button>
                        </form>
-                       <p class="text-center mt-3 text-muted">Don't have an account? <a href="{{ route('register') }}" class="text-primary text-decoration-none">Sign Up</a></p>
+                       {{-- <p class="text-center mt-3 text-muted">Don't have an account? <a href="{{ route('register') }}" class="text-primary text-decoration-none">Sign Up</a></p> --}}
                    </div>
                </div>
            </div>
