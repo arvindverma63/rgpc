@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NoticeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +42,14 @@ Route::get('/museum', [PageController::class, 'museum'])->name('museum');
 Route::get('/registration-form', [PageController::class, 'registrationForm'])->name('registration-form');
 Route::get('/seminar-hall', [PageController::class, 'seminarHall'])->name('seminar-hall');
 Route::get('/sports-field', [PageController::class, 'sportsField'])->name('sports-field');
+
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('notices', NoticeController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
+});
