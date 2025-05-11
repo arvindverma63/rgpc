@@ -10,7 +10,7 @@ class PageController extends Controller
     public function index()
     {
         $data = Notice::all();
-        return view('pages.index',['data'=>$data]);
+        return view('pages.index', ['data' => $data]);
     }
 
     public function about()
@@ -121,5 +121,10 @@ class PageController extends Controller
     public function sportsField()
     {
         return view('pages.sports-field');
+    }
+    public function getNotices()
+    {
+        $notice = Notice::all();
+        return response()->json($notice);
     }
 }

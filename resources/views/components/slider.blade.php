@@ -195,10 +195,10 @@
     .marquee {
         width: 100%;
         margin-top: 1rem;
-        background: #fff;
+        background: #000;
         padding: 1rem;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         overflow: hidden;
     }
 
@@ -208,15 +208,39 @@
         animation: marquee 20s linear infinite;
     }
 
-    .marquee-content span {
+    .marquee-content a {
         margin-right: 3rem;
-        color: #333;
-        font-weight: 500;
+        font-weight: 700;
+        font-family: 'Courier New', Courier, monospace;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        animation: colorChange 3s infinite alternate;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .marquee-content a:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .marquee-content a:nth-child(2) {
+        animation-delay: 1s;
+    }
+
+    .marquee-content a:nth-child(3) {
+        animation-delay: 2s;
     }
 
     @keyframes marquee {
         0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
+    }
+
+    @keyframes colorChange {
+        0% { color: #ff00ff; }
+        25% { color: #00ff00; }
+        50% { color: #ffff00; }
+        75% { color: #ff0000; }
+        100% { color: #00ffff; }
     }
 
     @keyframes fadeIn {
@@ -246,9 +270,7 @@
 </style>
 
 <section class="page p-0" style="margin-top: 20px;">
-    <div class="header">
-        Gurudev Innovative College of Pharmacy
-    </div>
+
     <div class="content">
         <div class="carousel">
             <input type="radio" id="carousel-1" name="carousel" checked autofocus>
@@ -291,11 +313,67 @@
             </div>
         </div>
         <div class="marquee">
-            <div class="marquee-content">
-                <span>Admissions Open for 2025-26! Apply Now!</span>
-                <span>Guest Lecture on Pharmaceutical Innovations - Nov 15</span>
-                <span>Campus Placement Drive - Dec 10</span>
+            <div class="marquee-content" id="marquee-content">
+                <!-- Notices will be populated here -->
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    // Fallback notices data
+    const fallbackNotices = [
+        {
+            id: 4,
+            title: "123",
+            file_path: "notices/uKDLgjAT4HJXp6O85AbjBAZmjqIeDxS057oiOI1i.pdf",
+            description: "Ghfgh",
+            user_id: 1,
+            created_at: "2025-05-05T18:05:20.000000Z",
+            updated_at: "2025-05-05T18:05:20.000000Z"
+        }
+    ];
+
+    async function fetchNotices() {
+        const marqueeContent = document.getElementById('marquee-content');
+        try {
+            const response = await fetch('/getNotices', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    // Add authentication headers if required, e.g.:
+                    // 'Authorization': 'Bearer YOUR_TOKEN'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const notices = await response.json();
+            if (!Array.isArray(notices) || notices.length === 0) {
+                throw new Error('No valid notices received');
+            }
+
+            marqueeContent.innerHTML = notices
+                .map((notice, index) => `
+                    <a href="${notice.file_path}" download style="animation-delay: ${index}s">
+                        ${notice.description}
+                    </a>
+                `)
+                .join('');
+        } catch (error) {
+            console.error('Error fetching notices:', error.message);
+            // Use fallback notices
+            marqueeContent.innerHTML = fallbackNotices
+                .map((notice, index) => `
+                    <a href="${notice.file_path}" download style="animation-delay: ${index}s">
+                        ${notice.description}
+                    </a>
+                `)
+                .join('');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchNotices);
+</script>
