@@ -334,7 +334,7 @@
                 </div>
             </div>
             <div class="marquee">
-                <span class="marquee-prefix">Latest Updates</span>
+                <span class="marquee-prefix bg-danger">Latest</span>
                 <div class="marquee-content" id="marquee-content">
                     <!-- Notices will be populated here -->
                 </div>
