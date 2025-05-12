@@ -27,7 +27,7 @@
         width: 100%;
         height: 60px;
         background: linear-gradient(90deg, #fc9928, #ff6200);
-        border-radius: 8px;
+        border-radius: 0px;
         display: flex;
         align-items: center;
         padding: 0 2rem;
@@ -47,7 +47,7 @@
         display: flex;
         overflow: hidden;
         position: relative;
-        border-radius: 12px;
+        border-radius: 0px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
@@ -195,9 +195,9 @@
     .marquee {
         width: 100%;
         margin-top: 1rem;
-        background: #000;
+        background: #333333;
         padding: 1rem;
-        border-radius: 8px;
+        border-radius: 0px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         overflow: hidden;
     }
@@ -269,7 +269,7 @@
     }
 </style>
 
-<section class="page p-0" style="margin-top: 20px;">
+<section class="" style="margin-top: 40px;margin-bottom: 0px;">
 
     <div class="content">
         <div class="carousel">
