@@ -10,55 +10,6 @@
 			@include('components.slider')
 
 
-	<!-- End banner Area -->
-
-	<!-- Start feature Area -->
-	{{-- <section class="feature-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="single-feature">
-						<div class="title">
-							<h4>Highly Educated & Experienced Faculties</h4>
-						</div>
-						<div class="desc-wrap">
-							<p>
-								Our faculty includes experts in pharmaceutical sciences.
-							</p>
-							<a href="/registration-form.php">Join Now</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="single-feature">
-						<div class="title">
-							<h4>Well Equipped Labs</h4>
-						</div>
-						<div class="desc-wrap">
-							<p>
-								State-of-the-art labs for practical training in pharmacy.
-							</p>
-							<a href="/registration-form.php">Join Now</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="single-feature">
-						<div class="title">
-							<h4>State Highway Connectivity</h4>
-						</div>
-						<div class="desc-wrap">
-							<p>
-								Easily accessible location with excellent transport links.
-							</p>
-							<a href="/registration-form.php">Join Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> --}}
-	<!-- End feature Area -->
 
 	<!-- Start popular-course Area -->
 	<section class="popular-course-area section-gap">
@@ -81,7 +32,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -103,7 +54,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -125,7 +76,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -147,7 +98,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -169,7 +120,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -191,7 +142,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -213,7 +164,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -235,7 +186,7 @@
 							</div>
 							<div class="meta d-flex justify-content-between">
 								<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
-								<h4>$150</h4>
+								<h4>150</h4>
 							</div>
 						</div>
 						<div class="details">
@@ -265,7 +216,7 @@
 						Admission Open 2025-2026
 					</h1>
 					<p>
-						Enroll now for B. Pharm and D. Pharm with special discounts and scholarships.
+						Enroll now for B. Pharma and D. Pharma with special discounts and scholarships.
 					</p>
 					<div class="row details-content">
 						<div class="col single-detials">
@@ -297,8 +248,8 @@
 						<div class="form-select" id="service-select">
 							<select>
 								<option datd-display="">Choose Course</option>
-								<option value="1">B. Pharm</option>
-								<option value="2">D. Pharm</option>
+								<option value="1">B. Pharma</option>
+								<option value="2">D. Pharma</option>
 							</select>
 						</div>
 						<button class="primary-btn text-uppercase">Submit</button>

@@ -44,25 +44,20 @@
     .carousel {
         width: 100%;
         height: 600px;
-        display: flex;
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
         border-radius: 0px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .carousel input[type="radio"] {
-        position: absolute;
-        display: none;
     }
 
     .slide {
         width: 100%;
         height: 100%;
-        flex-shrink: 0;
-        transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
         opacity: 0;
+        transition: opacity 0.6s ease-in-out;
     }
 
     .slide.active {
@@ -70,14 +65,10 @@
     }
 
     .slide-background {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         background-size: cover;
         background-position: center;
-        z-index: 1;
         filter: brightness(0.8);
     }
 
@@ -148,22 +139,22 @@
         transform: translateY(-50%);
     }
 
-    input:nth-of-type(1):checked ~ .control-1,
-    input:nth-of-type(2):checked ~ .control-2,
-    input:nth-of-type(3):checked ~ .control-3 {
+    input:nth-of-type(1):checked~.control-1,
+    input:nth-of-type(2):checked~.control-2,
+    input:nth-of-type(3):checked~.control-3 {
         display: block;
     }
 
-    input:nth-of-type(1):checked ~ .navigation .radio-btn-1,
-    input:nth-of-type(2):checked ~ .navigation .radio-btn-2,
-    input:nth-of-type(3):checked ~ .navigation .radio-btn-3 {
+    input:nth-of-type(1):checked~.navigation .radio-btn-1,
+    input:nth-of-type(2):checked~.navigation .radio-btn-2,
+    input:nth-of-type(3):checked~.navigation .radio-btn-3 {
         background-color: #fc9928;
         border-color: #fff;
     }
 
-    input:nth-of-type(1):checked ~ .slide-1,
-    input:nth-of-type(2):checked ~ .slide-2,
-    input:nth-of-type(3):checked ~ .slide-3 {
+    input:nth-of-type(1):checked~.slide-1,
+    input:nth-of-type(2):checked~.slide-2,
+    input:nth-of-type(3):checked~.slide-3 {
         transform: translateX(0);
         opacity: 1;
     }
@@ -231,21 +222,47 @@
     }
 
     @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
     }
 
     @keyframes colorChange {
-        0% { color: #ff00ff; }
-        25% { color: #00ff00; }
-        50% { color: #ffff00; }
-        75% { color: #ff0000; }
-        100% { color: #00ffff; }
+        0% {
+            color: #ff00ff;
+        }
+
+        25% {
+            color: #00ff00;
+        }
+
+        50% {
+            color: #ffff00;
+        }
+
+        75% {
+            color: #ff0000;
+        }
+
+        100% {
+            color: #00ffff;
+        }
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translate(-50%, -60%); }
-        to { opacity: 1; transform: translate(-50%, -50%); }
+        from {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
     }
 
     @media (max-width: 768px) {
@@ -287,14 +304,14 @@
             <div class="slide slide-2">
                 <div class="slide-background"></div>
                 <div class="slide-content">
-                    <h2>State-of-the-Art Facilities</h2>
+                    <h2 style="color: #fc9928">State-of-the-Art Facilities</h2>
                     <p>Explore our modern laboratories and learning spaces</p>
                 </div>
             </div>
             <div class="slide slide-3">
                 <div class="slide-background"></div>
                 <div class="slide-content">
-                    <h2>Expert Faculty</h2>
+                    <h2 style="color: #fc9928">Expert Faculty</h2>
                     <p>Learn from experienced professionals in the field</p>
                 </div>
             </div>
@@ -322,17 +339,15 @@
 
 <script>
     // Fallback notices data
-    const fallbackNotices = [
-        {
-            id: 4,
-            title: "123",
-            file_path: "notices/uKDLgjAT4HJXp6O85AbjBAZmjqIeDxS057oiOI1i.pdf",
-            description: "Ghfgh",
-            user_id: 1,
-            created_at: "2025-05-05T18:05:20.000000Z",
-            updated_at: "2025-05-05T18:05:20.000000Z"
-        }
-    ];
+    const fallbackNotices = [{
+        id: 4,
+        title: "123",
+        file_path: "notices/uKDLgjAT4HJXp6O85AbjBAZmjqIeDxS057oiOI1i.pdf",
+        description: "Ghfgh",
+        user_id: 1,
+        created_at: "2025-05-05T18:05:20.000000Z",
+        updated_at: "2025-05-05T18:05:20.000000Z"
+    }];
 
     async function fetchNotices() {
         const marqueeContent = document.getElementById('marquee-content');
