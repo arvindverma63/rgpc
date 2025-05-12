@@ -356,8 +356,6 @@
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
-                    // Add authentication headers if required, e.g.:
-                    // 'Authorization': 'Bearer YOUR_TOKEN'
                 }
             });
 
@@ -372,7 +370,7 @@
 
             marqueeContent.innerHTML = notices
                 .map((notice, index) => `
-                    <a href="${notice.file_path}" download style="animation-delay: ${index}s">
+                    <a href="${notice.file_path}" style="animation-delay: ${index}s">
                         ${notice.description}
                     </a>
                 `)
@@ -382,7 +380,7 @@
             // Use fallback notices
             marqueeContent.innerHTML = fallbackNotices
                 .map((notice, index) => `
-                    <a href="${notice.file_path}" download style="animation-delay: ${index}s">
+                    <a href="${notice.file_path}" style="animation-delay: ${index}s">
                         ${notice.description}
                     </a>
                 `)
