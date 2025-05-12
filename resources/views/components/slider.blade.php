@@ -301,7 +301,7 @@
                 <div class="slide slide-1">
                     <div class="slide-background"></div>
                     <div class="slide-content">
-                        <h2 style="color: #fc9928">Welcome to Our College</h2>
+                        <h2 style="color: #fc9928">GIC Pharmacy</h2>
                         <p>Kakor-Auraiya (UP) - Excellence in Pharmaceutical Education</p>
                     </div>
                 </div>
