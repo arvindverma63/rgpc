@@ -346,7 +346,7 @@
         // Fallback notices data
         const fallbackNotices = [{
             id: 4,
-            title: "123",
+            title: "Currently No Notice (or update)",
             file_path: "/storage/notices/uKDLgjAT4HJXp6O85AbjBAZmjqIeDxS057oiOI1i.pdf",
             description: "Ghfgh",
             user_id: 1,
@@ -387,7 +387,6 @@
                             </a>
                         `;
                     })
-
                     .join('');
             } catch (error) {
                 console.error('Error fetching notices:', error.message);
