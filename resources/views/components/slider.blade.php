@@ -382,7 +382,7 @@
                             return '';
                         }
                         return `
-                            <a href="/storage/${notice.file_path}">
+                            <a href="/storage/app/public/${notice.file_path}">
                                 ${notice.title || notice.description || 'No title'}
                             </a>
                         `;
@@ -393,7 +393,7 @@
                 // Use fallback notices
                 marqueeContent.innerHTML = fallbackNotices
                     .map((notice, index) => `
-                        <a href="/storage/notices/${notice.file_path.split('/').pop()}" download>
+                        <a href="/storage/app/public/notices/${notice.file_path.split('/').pop()}" download>
                             ${notice.title || notice.description || 'No title'}
                         </a>
                     `)
