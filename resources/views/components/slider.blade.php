@@ -387,6 +387,7 @@
                             </a>
                         `;
                     })
+
                     .join('');
             } catch (error) {
                 console.error('Error fetching notices:', error.message);
