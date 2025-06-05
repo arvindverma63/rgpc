@@ -21,16 +21,19 @@
                         <p>Explore our programs for a successful career in pharmacy.</p>
                     </div>
                 </div>
-            </div><style>
-    .responsive-img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-</style>
+            </div>
+            <style>
+                .responsive-img {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+            </style>
 
-<img src="{{ asset('banner.jpg') }}" class="responsive-img" alt="Responsive banner">
+            <img src="{{ asset('banner.jpg') }}" class="responsive-img" alt="Responsive banner">
+
+             <img src="{{ asset('banner2.jpg') }}" class="responsive-img" alt="Responsive banner">
 
         </div>
     </section>
