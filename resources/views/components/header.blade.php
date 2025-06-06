@@ -54,8 +54,8 @@
                     </li>
                     <li class="menu-has-children"><a href="{{ route('course-bpharma') }}">Courses</a>
                         <ul class="dropdown" style="right: auto;">
-                            <li><a href="{{ route('course-dpharma') }}">D.Pharma (2051)</a></li>
-                            <li><a href="{{ route('course-bpharma') }}">B.Pharma (1052)</a></li>
+                            <li><a href="{{ route('course-dpharma') }}">D.Pharma (3447)</a></li>
+                            <li><a href="{{ route('course-bpharma') }}">B.Pharma </a></li>
                             <li><a href="{{ route('fee-structure') }}">Fee Structure</a></li>
                         </ul>
                     </li>
