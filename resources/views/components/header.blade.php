@@ -46,6 +46,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="menu-has-children"><a href="{{ route('admission-procedure') }}">Admissions</a>
                         <ul class="dropdown" style="right: auto;">
                             <li><a href="{{ route('admission-procedure') }}">Admission Procedure</a></li>
