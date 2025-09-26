@@ -6,11 +6,31 @@
     .gallery-img {
         width: 100%;
         height: 200px;
-        /* Fixed height for consistent size */
+        /* Fixed height for consistency */
         object-fit: cover;
-        /* Ensures images fill the space without distortion */
+        /* Crops images to fit without distortion */
         aspect-ratio: 4/3;
-        /* Maintains consistent aspect ratio */
+        /* Consistent aspect ratio */
+        border-radius: 10px;
+        /* Rounded corners for modern look */
+        transition: transform 0.3s ease;
+        /* Smooth hover effect */
+    }
+
+    .gallery-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-5px);
+        /* Slight lift on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        /* Deeper shadow on hover */
+    }
+
+    .gallery-img:hover {
+        transform: scale(1.05);
+        /* Subtle zoom on image hover */
     }
 </style>
 
@@ -28,9 +48,8 @@
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
                     <h4 class="text-orange mb-3 font-weight-bold">GIC Pharmacy Gallery</h4>
-                    <p>Explore the vibrant life at GIC Pharmacy through our gallery, showcasing state-of-the-art
-                        facilities, modern classrooms, advanced laboratories, and serene campus spaces. These images
-                        capture the essence of our academic environment and student experience.</p>
+                    <p>Explore the vibrant life at GIC Pharmacy through our curated gallery, showcasing state-of-the-art
+                        facilities, modern classrooms, advanced laboratories, and serene campus spaces.</p>
 
                     <h5 class="text-orange mt-4">Highlights:</h5>
                     <ul>
@@ -46,25 +65,35 @@
                             $galleryPath = public_path('img/gic_gallery');
                             $imageFiles = File::files($galleryPath);
                             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                            $validImages = [];
+                            foreach ($imageFiles as $image) {
+                                if (in_array(strtolower($image->getExtension()), $allowedExtensions)) {
+                                    $validImages[] = $image;
+                                }
+                            }
+                            $validImages = array_slice($validImages, 0, 4); // Limit to 4 images
                         @endphp
-                        @foreach ($imageFiles as $image)
-                            @if (in_array(strtolower($image->getExtension()), $allowedExtensions))
-                                @php
-                                    $imageName = pathinfo($image->getFilename(), PATHINFO_FILENAME);
-                                    $imageUrl = asset('img/gic_gallery/' . $image->getFilename());
-                                @endphp
-                                <div class="col">
-                                    <div class="card h-100 border-0 shadow-sm">
-                                        <a href="{{ $imageUrl }}" data-bs-toggle="modal"
-                                            data-bs-target="#imageModal" data-bs-image="{{ $imageUrl }}"
-                                            data-bs-title="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
-                                            <img src="{{ $imageUrl }}" class="card-img-top gallery-img"
-                                                alt="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
-                                        </a>
-                                    </div>
+                        @foreach ($validImages as $image)
+                            @php
+                                $imageName = pathinfo($image->getFilename(), PATHINFO_FILENAME);
+                                $imageUrl = asset('img/gic_gallery/' . $image->getFilename());
+                            @endphp
+                            <div class="col">
+                                <div class="card h-100 border-0 shadow-sm gallery-card">
+                                    <a href="{{ $imageUrl }}" data-bs-toggle="modal" data-bs-target="#imageModal"
+                                        data-bs-image="{{ $imageUrl }}"
+                                        data-bs-title="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
+                                        <img src="{{ $imageUrl }}" class="card-img-top gallery-img"
+                                            alt="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
+                                    </a>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
+                        @if (count($validImages) == 0)
+                            <div class="col-12 text-center">
+                                <p class="text-muted">No images found in the gallery.</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
