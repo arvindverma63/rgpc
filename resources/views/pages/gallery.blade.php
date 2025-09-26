@@ -3,10 +3,13 @@
     @include('components.head')
 
 <style>
+    .gallery-container {
+        padding: 0 15px; /* Ensures proper spacing within container */
+    }
     .gallery-img {
         width: 100%;
-        height: 250px; /* Increased height for better visibility */
-        object-fit: cover; /* Ensures images fit without stretching */
+        height: 300px; /* Adjusted height to match your image aspect ratio better */
+        object-fit: cover; /* Maintains image proportions */
         aspect-ratio: 4/3; /* Consistent aspect ratio */
         border-radius: 10px; /* Rounded corners */
         transition: transform 0.3s ease; /* Smooth hover effect */
@@ -14,6 +17,7 @@
     .gallery-card {
         overflow: hidden; /* Prevents image overflow */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none; /* Removes default card border */
     }
     .gallery-card:hover {
         transform: translateY(-5px); /* Slight lift on hover */
@@ -22,9 +26,13 @@
     .gallery-img:hover {
         transform: scale(1.05); /* Subtle zoom */
     }
-    /* Ensure grid spacing and alignment */
     .row.g-4 {
-        margin-bottom: 20px; /* Adds space between rows */
+        margin-bottom: 30px; /* Increased spacing between rows */
+    }
+    @media (min-width: 768px) {
+        .row-cols-md-4 > .col {
+            padding: 0 10px; /* Adjusts padding for better alignment */
+        }
     }
 </style>
 
@@ -38,7 +46,7 @@
 </section>
 
 <section class="py-5 bg-light">
-	<div class="container">
+	<div class="container gallery-container">
 		<div class="card border-0 shadow-sm">
 			<div class="card-body">
 				<h4 class="text-orange mb-3 font-weight-bold">GIC Pharmacy Gallery</h4>
@@ -66,7 +74,7 @@
 								$imageUrl = asset('img/gic_gallery/' . $image->getFilename());
 							@endphp
 							<div class="col">
-								<div class="card h-100 border-0 shadow-sm gallery-card">
+								<div class="card h-100 gallery-card">
 									<a href="{{ $imageUrl }}" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="{{ $imageUrl }}" data-bs-title="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
 										<img src="{{ $imageUrl }}" class="card-img-top gallery-img" alt="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
 									</a>
