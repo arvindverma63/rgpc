@@ -119,29 +119,28 @@
         }
     </style>
 
-    <script>
-        // Simulated image array (replace with dynamic PHP logic)
-        const images = [
-            "{{ asset('img/gic_gallery/image1.jpg') }}",
-            "{{ asset('img/gic_gallery/image2.jpg') }}",
-            "{{ asset('img/gic_gallery/image3.jpg') }}",
-            "{{ asset('img/gic_gallery/image4.jpg') }}",
-            "{{ asset('img/gic_gallery/image5.jpg') }}",
-            "{{ asset('img/gic_gallery/image6.jpg') }}",
-            "{{ asset('img/gic_gallery/image7.jpg') }}",
-            "{{ asset('img/gic_gallery/image8.jpg') }}"
-        ].filter(src => src !== "{{ asset('img/gic_gallery/') }}"); // Filter out invalid URLs
+    @php
+        $galleryPath = public_path('img/gic_gallery');
+        $imageFiles = File::files($galleryPath);
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        $imageUrls = array_map(function ($image) {
+            return asset('img/gic_gallery/' . $image->getFilename());
+        }, array_filter($imageFiles, fn($image) => in_array(strtolower($image->getExtension()), $allowedExtensions)));
+    @endphp
 
+    <script>
+        const images = @json($imageUrls);
         const galleryContainer = document.getElementById('galleryContainer');
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
 
         // Populate gallery dynamically
         images.forEach((src, index) => {
-            if (src) { // Ensure src is valid
+            if (src) {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 item.innerHTML = `<a href="#" onclick="openModal('${src}', 'Image ${index + 1}')"><img src="${src}" class="gallery-img" alt="Gallery Image ${index + 1}"></a>`;
+                galleryContainer.classList.add('gallery-grid'); // Add grid class to container
                 galleryContainer.appendChild(item);
             }
         });
