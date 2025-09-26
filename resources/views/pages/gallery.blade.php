@@ -2,129 +2,168 @@
 <html lang="en">
     @include('components.head')
 
-<style>
-    .gallery-container {
-        padding: 0 15px; /* Ensures proper spacing within container */
-    }
-    .gallery-img {
-        width: 100%;
-        height: 300px; /* Adjusted height to match your image aspect ratio better */
-        object-fit: cover; /* Maintains image proportions */
-        aspect-ratio: 4/3; /* Consistent aspect ratio */
-        border-radius: 10px; /* Rounded corners */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
-    .gallery-card {
-        overflow: hidden; /* Prevents image overflow */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: none; /* Removes default card border */
-    }
-    .gallery-card:hover {
-        transform: translateY(-5px); /* Slight lift on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-    }
-    .gallery-img:hover {
-        transform: scale(1.05); /* Subtle zoom */
-    }
-    .row.g-4 {
-        margin-bottom: 30px; /* Increased spacing between rows */
-    }
-    @media (min-width: 768px) {
-        .row-cols-md-4 > .col {
-            padding: 0 10px; /* Adjusts padding for better alignment */
-        }
-    }
-</style>
-
 <body>
     @include('components.header')
 
-<section class="banner-area bg-dark text-white py-5 text-center">
-	<div class="container">
-		<h1 class="display-4 font-weight-bold text-white" style="margin-top: 170px;">Gallery</h1>
-	</div>
-</section>
+    <section class="banner-area bg-dark text-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold text-white" style="margin-top: 170px;">Gallery</h1>
+        </div>
+    </section>
 
-<section class="py-5 bg-light">
-	<div class="container gallery-container">
-		<div class="card border-0 shadow-sm">
-			<div class="card-body">
-				<h4 class="text-orange mb-3 font-weight-bold">GIC Pharmacy Gallery</h4>
-				<p>Explore the vibrant life at GIC Pharmacy through our curated gallery, showcasing state-of-the-art facilities, modern classrooms, advanced laboratories, and serene campus spaces.</p>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-orange mb-3 font-weight-bold">GIC Pharmacy Gallery</h4>
+                    <p>Explore the vibrant life at GIC Pharmacy through our curated gallery, showcasing state-of-the-art facilities, modern classrooms, advanced laboratories, and serene campus spaces.</p>
 
-				<h5 class="text-orange mt-4">Highlights:</h5>
-				<ul>
-					<li>Modern laboratories equipped for cutting-edge pharmaceutical research</li>
-					<li>Spacious lecture halls designed for interactive learning</li>
-					<li>Picturesque campus areas fostering a dynamic student community</li>
-				</ul>
+                    <h5 class="text-orange mt-4">Highlights:</h5>
+                    <ul>
+                        <li>Modern laboratories equipped for cutting-edge pharmaceutical research</li>
+                        <li>Spacious lecture halls designed for interactive learning</li>
+                        <li>Picturesque campus areas fostering a dynamic student community</li>
+                    </ul>
 
-				<!-- Gallery Section -->
-				<h5 class="text-orange mt-5 mb-3 font-weight-bold">Explore Our Campus</h5>
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-					@php
-						$galleryPath = public_path('img/gic_gallery');
-						$imageFiles = File::files($galleryPath);
-						$allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-					@endphp
-					@foreach ($imageFiles as $image)
-						@if (in_array(strtolower($image->getExtension()), $allowedExtensions))
-							@php
-								$imageName = pathinfo($image->getFilename(), PATHINFO_FILENAME);
-								$imageUrl = asset('img/gic_gallery/' . $image->getFilename());
-							@endphp
-							<div class="col">
-								<div class="card h-100 gallery-card">
-									<a href="{{ $imageUrl }}" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="{{ $imageUrl }}" data-bs-title="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
-										<img src="{{ $imageUrl }}" class="card-img-top gallery-img" alt="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
-									</a>
-								</div>
-							</div>
-						@endif
-					@endforeach
-					@if (empty($imageFiles) || count(array_filter($imageFiles, fn($image) => in_array(strtolower($image->getExtension()), $allowedExtensions))) == 0)
-						<div class="col-12 text-center">
-							<p class="text-muted">No images found in the gallery.</p>
-						</div>
-					@endif
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+                    <!-- Custom Gallery Section -->
+                    <h5 class="text-orange mt-5 mb-3 font-weight-bold">Explore Our Campus</h5>
+                    <div class="gallery-container" id="galleryContainer">
+                        <!-- Images will be inserted here via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Modal for Lightbox -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="imageModalLabel">Image Title</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body text-center">
-				<img src="" class="img-fluid" id="modalImage" alt="Gallery Image">
-			</div>
-		</div>
-	</div>
-</div>
+    <!-- Modal for Lightbox -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage">
+        </div>
+    </div>
 
-@include('components.footer')
+    <style>
+        .gallery-container {
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 300px; /* Adjusted for your image aspect ratio */
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .modal-img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr; /* 1 per row on mobile */
+            }
+            .gallery-img {
+                height: 200px; /* Reduced height for mobile */
+            }
+        }
+    </style>
 
-<!-- JavaScript for Modal Image Update -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const imageModal = document.getElementById('imageModal');
-    imageModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const imageSrc = button.getAttribute('data-bs-image');
-        const imageTitle = button.getAttribute('data-bs-title');
-        const modalImage = imageModal.querySelector('#modalImage');
-        const modalTitle = imageModal.querySelector('#imageModalLabel');
-        modalImage.src = imageSrc;
-        modalTitle.textContent = imageTitle;
-    });
-});
-</script>
+    <script>
+        // Simulated image array (replace with dynamic PHP logic)
+        const images = [
+            "{{ asset('img/gic_gallery/image1.jpg') }}",
+            "{{ asset('img/gic_gallery/image2.jpg') }}",
+            "{{ asset('img/gic_gallery/image3.jpg') }}",
+            "{{ asset('img/gic_gallery/image4.jpg') }}",
+            "{{ asset('img/gic_gallery/image5.jpg') }}",
+            "{{ asset('img/gic_gallery/image6.jpg') }}",
+            "{{ asset('img/gic_gallery/image7.jpg') }}",
+            "{{ asset('img/gic_gallery/image8.jpg') }}"
+        ].filter(src => src !== "{{ asset('img/gic_gallery/') }}"); // Filter out invalid URLs
 
+        const galleryContainer = document.getElementById('galleryContainer');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        // Populate gallery dynamically
+        images.forEach((src, index) => {
+            if (src) { // Ensure src is valid
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<a href="#" onclick="openModal('${src}', 'Image ${index + 1}')"><img src="${src}" class="gallery-img" alt="Gallery Image ${index + 1}"></a>`;
+                galleryContainer.appendChild(item);
+            }
+        });
+
+        // Modal functions
+        function openModal(src, title) {
+            modalImage.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+
+    @include('components.footer')
 </body>
 </html>
