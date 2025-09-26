@@ -5,21 +5,26 @@
 <style>
     .gallery-img {
         width: 100%;
-        height: 200px; /* Fixed height for consistency */
-        object-fit: cover; /* Crops images to fit without distortion */
+        height: 250px; /* Increased height for better visibility */
+        object-fit: cover; /* Ensures images fit without stretching */
         aspect-ratio: 4/3; /* Consistent aspect ratio */
-        border-radius: 10px; /* Rounded corners for modern look */
+        border-radius: 10px; /* Rounded corners */
         transition: transform 0.3s ease; /* Smooth hover effect */
     }
     .gallery-card {
+        overflow: hidden; /* Prevents image overflow */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery-card:hover {
         transform: translateY(-5px); /* Slight lift on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
     }
     .gallery-img:hover {
-        transform: scale(1.05); /* Subtle zoom on image hover */
+        transform: scale(1.05); /* Subtle zoom */
+    }
+    /* Ensure grid spacing and alignment */
+    .row.g-4 {
+        margin-bottom: 20px; /* Adds space between rows */
     }
 </style>
 
