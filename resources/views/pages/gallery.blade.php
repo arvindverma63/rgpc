@@ -2,6 +2,18 @@
 <html lang="en">
 @include('components.head')
 
+<style>
+    .gallery-img {
+        width: 100%;
+        height: 200px;
+        /* Fixed height for consistent size */
+        object-fit: cover;
+        /* Ensures images fill the space without distortion */
+        aspect-ratio: 4/3;
+        /* Maintains consistent aspect ratio */
+    }
+</style>
+
 <body>
     @include('components.header')
 
@@ -29,7 +41,7 @@
 
                     <!-- Gallery Section -->
                     <h5 class="text-orange mt-5 mb-3 font-weight-bold">Explore Our Campus</h5>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                         @php
                             $galleryPath = public_path('img/gic_gallery');
                             $imageFiles = File::files($galleryPath);
@@ -46,12 +58,9 @@
                                         <a href="{{ $imageUrl }}" data-bs-toggle="modal"
                                             data-bs-target="#imageModal" data-bs-image="{{ $imageUrl }}"
                                             data-bs-title="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
-                                            <img src="{{ $imageUrl }}" class="card-img-top"
+                                            <img src="{{ $imageUrl }}" class="card-img-top gallery-img"
                                                 alt="{{ ucwords(str_replace('_', ' ', $imageName)) }}">
                                         </a>
-                                        <div class="card-body text-center">
-                                            <h6 class="card-title">{{ ucwords(str_replace('_', ' ', $imageName)) }}</h6>
-                                        </div>
                                     </div>
                                 </div>
                             @endif
