@@ -50,6 +50,7 @@ Route::post('/login', [AuthController::class, 'login']);
 // Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/getNotices',[PageController::class,'getNotices']);
+Route::get('/gallery',[PageController::class,'photoGallery'])->name('gallery');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('notices', NoticeController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);

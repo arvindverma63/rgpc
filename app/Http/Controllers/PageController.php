@@ -127,4 +127,7 @@ class PageController extends Controller
         $notice = Notice::all();
         return response()->json($notice);
     }
+    public function photoGallery(){
+        return view('pages.gallery');
+    }
 }

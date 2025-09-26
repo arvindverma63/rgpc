@@ -37,7 +37,7 @@
                             <li><a href="{{ route('about-management') }}">Management</a></li>
                             <li><a href="{{ route('about-director-message') }}">Director Message</a></li>
                             <li><a href="{{ route('about-vision-mission') }}">Vision & Mission</a></li>
-                            <li><a href="#">Photo Gallery</a></li>
+                            <li><a href="{{ route('gallery') }}">Photo Gallery</a></li>
                             <li><a href="#">Approvals Details<span class="indicator"><i class="fa fa-angle-right"></i></span></a>
                                 <ul class="dropdown" style="display: none;">
                                     <li><a href="#">All Approval Letters</a></li>
